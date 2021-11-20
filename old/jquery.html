@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script>
+
+        $(function () {
+            
+            alert ("Head");
+        })
+
+        // document.onload = function (ev) {
+        //     alert ("Head");
+        // }
+
+    </script> -->
+</head>
+<body>
+    <button id="btnAdd">Thêm phần tử</button>
+
+    <ul id="list"></ul>
+
+    <script>
+
+        $("#btnAdd").click(function (ev) {
+            let now = Date.now();
+
+            //Tạo Element bằng jquery
+
+            //Thẻ li
+            var liEle = $("<li>");
+            //Thẻ button
+            var btnEle = $("<btn>").text("Xóa");
+            //Thẻ span
+            var spanEle = $("<span>").text(now);
+
+            //Đưa thẻ span & button vào trong thẻ li
+            liEle.append(spanEle, btnEle);
+
+            //Đưa thẻ li vừa tạo trong thẻ ul
+            $("#list").append(liEle);
+            
+            //Sự kiện click của button xóa
+            btnEle.click(function (evt) {
+                liEle.remove();
+            });
+        });
+    </script>
+
+    <!-- <div id="start" class="abc def" title="start"> Start </div>
+    <button onclick="Click()">Click</button>
+
+    <script>
+        function Click() {
+            var divEle = $("#start");
+            var allClass = divEle.attr("class");
+
+            divEle.attr("class","xyz html jquery");
+        
+        }
+
+        //$("#start").text("Hello!!!");
+        
+    </script> -->
+
+    <!-- <div id="test"> ABC </div>
+
+    <script>
+
+        // console.log($);
+
+        alert("Hello!!!");
+
+    </script> -->
+</body>
+</html>

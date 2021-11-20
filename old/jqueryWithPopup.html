@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        .popup-container{
+            background-color: aqua;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            top: 0;
+            right: 0;
+            opacity: 0;
+            display: none;
+            transition: all 0.3s;
+        }
+
+        .popup-container>.popup{
+            min-width: 300px;
+            max-width: 400px;
+            background-color: magenta;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+
+        .popup>[class^=popup]{
+            padding: 10px;
+        }
+
+        .popup-footer{
+            text-align: right;
+            background-color: mediumvioletred;
+            font-size: 10px;
+        }
+
+        .show{
+            display: block !important;
+        }
+
+        .fade{
+            opacity: 1!important;
+        }
+    </style>
+
+</head>
+<body>
+    <button id="openPopup">Nhấn để mở popup</button>
+
+    <div id="myPopup" class="popup-container">
+        <div class="popup">
+            <div class="popup-header">Tiêu đề</div>
+            <div class="popup-body">Nội dung</div>
+            <div class="popup-footer">
+                <button class="close-popup">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var btnOpen = document.getElementById("openPopup");
+        var popup = document.getElementById("myPopup");
+
+        btnOpen.onclick = function(ev){
+            popup.fadeIn(2000);
+        
+        }
+
+        var btnClose = popup.querySelector(".close-popup");
+        btnClose.click(function (ev) {
+            popup.fadeOut(2000);
+        });
+
+    </script>
+</body>
+</html>
